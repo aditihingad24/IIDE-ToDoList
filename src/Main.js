@@ -1,5 +1,5 @@
 import React from 'react';
-import { Layout, Row, Col } from 'antd';
+import { Layout, Row } from 'antd';
 
 import AddItems from './AddItems';
 import ListItems from './ListItems';
@@ -30,29 +30,24 @@ class Main extends React.Component {
         <Content 
           style={{height: '100vh',backgroundColor:'pink'}}
         >
-          <Row style={{height: '100%'}}>
-            <Col 
-              style={{
-                height: '100%', 
+          <Row style={{height: '50%',
+                      display:'flex',
+                      alignItems: 'center',
+                      justifyContent: 'center'
+                     }}>
+              <AddItems onClickHandler={this.onClickHandler} />
+          </Row> 
+          <Row  style={{
+                height: '50%', 
                 display:'flex',
                 alignItems: 'center',
                 justifyContent: 'center'
-              }} 
-              span={12}
-            >
-              <AddItems onClickHandler={this.onClickHandler} />
-            </Col>          
-            <Col 
-              style={{
-                height: '100%', 
-                display:'flex',
-                alignItems: 'center',
-              }} 
-              span={12}
-            >
+              }} >
+            
               <ListItems list={this.state.list} />
-            </Col>
+            
           </Row>
+          
         </Content>
       </Layout>
     )
